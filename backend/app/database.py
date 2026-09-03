@@ -3,7 +3,10 @@ import os
 from typing import Optional
 from contextlib import contextmanager
 
-DATABASE_PATH = "ayush_emr.db"
+DATABASE_PATH = os.environ.get(
+    "DATABASE_PATH",
+    os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "ayush_emr.db")
+)
 
 def get_db_connection():
     """Get database connection with row factory"""

@@ -50,7 +50,7 @@ const FHIRDemo = () => {
   const [loading, setLoading] = useState(false)
   const [activeTab, setActiveTab] = useState('search')
 
-  const API_BASE = 'http://localhost:8000/api'
+  const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000/api'
 
   const systems = [
     { id: null, name: 'All Systems', color: 'bg-gradient-to-r from-slate-500 to-slate-600', icon: Globe },

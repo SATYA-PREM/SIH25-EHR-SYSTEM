@@ -6,6 +6,8 @@ import {
 } from 'lucide-react';
 
 export default function PatientDoctor() {
+  const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
   // User information
   const user = {
     identifier: 'P-1001',
@@ -166,7 +168,7 @@ export default function PatientDoctor() {
     );
 
     try {
-      const response = await fetch('http://localhost:5000/api/patient/diseases', {
+      const response = await fetch(`${API_BASE}/patient/diseases`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -227,7 +229,7 @@ export default function PatientDoctor() {
         params.append('database', selectedDatabase);
       }
 
-      const response = await fetch(`http://localhost:5000/api/search?${params}`, {
+      const response = await fetch(`${API_BASE}/search?${params}`, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
